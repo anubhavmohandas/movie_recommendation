@@ -1,1 +1,18 @@
+<h2>Bollywood Movies</h2>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <td>{{ movie.name }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.genere.join(', ') }}</td>
+    </tr>
+  </tbody>
+</table>
