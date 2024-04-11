@@ -1,16 +1,22 @@
-.container{
+.container {
     width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
+  
   h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
   }
   
-  /* Search Box Styles */
+  /* Search Box */
   .search-box {
     margin-bottom: 20px;
+    width: 100%;
   }
   
   label {
@@ -24,7 +30,7 @@
     width: 100%;
   }
   
-  /* Table Styles */
+  /* Table */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -40,6 +46,5 @@
     background-color: green;
     color: whitesmoke;
     font-weight: bold;
-
   }
   
