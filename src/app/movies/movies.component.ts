@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { movie } from './movie';
 import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, FormsModule],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css'
 })
@@ -112,4 +113,25 @@ export class MoviesComponent {
       genere: ['Drama']
     }
   ];
+  genres: string[] = [];
+
+  selectedGenre: string = '';
+
+  constructor() {
+    this.movies.forEach(movie => {
+      movie.genere.forEach(genre => {
+        if (!this.genres.includes(genre)) {
+          this.genres.push(genre);
+        }
+      });
+    });
+  }
+
+  get filteredMovies(): movie[] {
+    if (!this.selectedGenre) {
+      return this.movies;
+    } else {
+      return this.movies.filter(movie => movie.genere.includes(this.selectedGenre));
+    }
+  }
 }

@@ -1,18 +1,29 @@
 <h2>Bollywood Movies</h2>
+<div class="container">
+  <!-- Search Box -->
+  <div class="search-box">
+    <label for="genre">Filter by Genre:</label>
+    <select id="genre" [(ngModel)]="selectedGenre">
+      <option value="">All Genres</option>
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+    </select>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Genre</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let movie of movies">
-      <td>{{ movie.name }}</td>
-      <td>{{ movie.year }}</td>
-      <td>{{ movie.genere.join(', ') }}</td>
-    </tr>
-  </tbody>
-</table>
+  <!-- Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Genre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of filteredMovies">
+        <td>{{ movie.name }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.genere.join(', ') }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
